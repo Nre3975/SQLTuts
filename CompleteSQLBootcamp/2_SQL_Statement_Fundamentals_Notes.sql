@@ -98,3 +98,33 @@ SELECT payment_date
  WHERE payment_date BETWEEN '2007-02-07' AND '2007-02-15'
 
 ------------------------------------------------------------------------------------
+/* 22 In */
+-- Check when a value matches another value in a given list of values or subquery. 
+-- Returns TRUE/FALSE. 
+-- Can reverse with NOT. 
+
+-- Find rental information if customer ID is in the list of values: 1, 2. 
+SELECT rental_id, customer_id, return_date
+  FROM rental 
+ WHERE customer_id IN (1, 2)
+ ORDER BY return_date DESC;
+
+/* Equal to (but much faster than): 
+SELECT rental_id, customer_id, return_date
+  FROM rental 
+ WHERE customer_id = 1
+    OR customer_id = 2 
+ ORDER BY return_date DESC; */
+
+-- Find rental information if customer ID is not in the list of values: 7, 13, 10
+SELECT rental_id, customer_id, return_date
+  FROM rental 
+ WHERE customer_id NOT IN (7, 13, 10) 
+ ORDER BY return_date DESC;
+
+-- All payments made for 7.99 or 8.99: 
+SELECT * 
+  FROM payment 
+ WHERE amount IN (7.99, 8.99); 
+
+------------------------------------------------------------------------------------
