@@ -44,8 +44,13 @@ SELECT *
  LIMIT 10;
 
 -- 2) Titles of the movies with film IDs 1-5 
- SELECT * 
+SELECT film_id 
   FROM film 
  FETCH FIRST 5 ROWS ONLY;
+
+SELECT film_id 
+  FROM film 
+ ORDER BY film_id 
+ LIMIT 5; 
 ---------------------------------------------------------------------------
 -- 2.24: General Challenge 1. 
