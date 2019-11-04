@@ -23,7 +23,7 @@ SELECT *
   FROM customer 
  WHERE store_id = 1 AND address_id > 5
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 /* 17: COUNT */
 -- Count number of rows where condition is true. 
 -- Counting a specific column will NOT count null rows. 
@@ -34,7 +34,7 @@ SELECT COUNT(*)
 SELECT COUNT(DISTINCT amount)
   FROM payment; 
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 /* 18: Limit. */
 -- Limit the number of rows returned, does not exist in ORACLE SQL. 
 SELECT * 
@@ -57,7 +57,7 @@ SELECT *
 OFFSET 5 ROWS
  FETCH FIRST 5 ROWS ONLY;
 
-
+------------------------------------------------------------------------------------
 /* 19: Order By. */
 -- Sort data by column(s) in ascending or descending order. 
 -- In postgres can also sort by columns not returned in the select statement
@@ -74,4 +74,27 @@ SELECT email
   FROM customer
  ORDER BY last_name DESC; 
 
- 
+------------------------------------------------------------------------------------
+/* 21 Between */
+-- Match a value against a range of values. 
+-- value BETWEEN HIGH AND LOW  == Value >- low AND value <= high; 
+-- NOT BETWEEN to check value is not within a range. 
+
+-- Any customer ids who had an amount between 2 values
+SELECT customer_id, amount  
+  FROM payment 
+ WHERE amount BETWEEN 8.00 AND 9.00
+ LIMIT 5; 
+
+-- Any customer ids who had an amount not between the same 2 values
+SELECT customer_id, amount  
+  FROM payment 
+ WHERE amount NOT BETWEEN 8.00 AND 9.00
+ LIMIT 5; 
+
+-- All orders between 2 dates. 
+SELECT payment_date
+  FROM payment 
+ WHERE payment_date BETWEEN '2007-02-07' AND '2007-02-15'
+
+------------------------------------------------------------------------------------
