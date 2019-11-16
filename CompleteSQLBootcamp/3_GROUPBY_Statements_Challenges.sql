@@ -1,4 +1,4 @@
-/* 3.27: Challenge: SELECT Task. */
+/* 3.27: Challenge: GROUP BY */
 
 --1) How many payments did each staff memeber handle? What was the total amount processed by each
 SELECT P.STAFF_ID, S.FIRST_NAME || ' ' || S.LAST_NAME AS NAME, COUNT(P.AMOUNT) AS PAYMENTS_HANDLED, SUM(P.AMOUNT) TOTAL_AMOUNT
@@ -18,3 +18,19 @@ SELECT p.customer_id, c.first_name || ' ' || c.last_name AS NAME, SUM(amount) AS
  GROUP BY p.customer_id, c.first_name || ' ' || c.last_name
  ORDER BY sum(amount) DESC
  FETCH NEXT 5 ROWS ONLY; 
+
+---------------------------------------------------------------------------
+/* 15: WHERE CLAUSE */ 
+
+--1) Find customers by customer ID with 40+ transaction payments. 
+SELECT p.customer_id, c.first_name || ' ' || c.last_name AS NAME, count(p.amount) AS TOTAL_PURCHASES
+  FROM payment p, customer c
+ WHERE p.customer_id = c.customer_id
+ GROUP BY p.customer_id, c.first_name || ' ' || c.last_name
+HAVING count(p.amount) > 40;
+
+--2) Movie rental ratings with an average rental duration of more than 5 days. 
+SELECT rating, ROUND(AVG(rental_duration), 2)
+  FROM film
+ GROUP BY rating
+HAVING AVG(rental_duration) > 5
