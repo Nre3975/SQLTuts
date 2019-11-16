@@ -73,4 +73,26 @@ SELECT rating, round(avg(rental_rate) , 3)
  GROUP BY Rating; 
 
  ---------------------------------------------------------------------------
- 
+ /* 26: HAVING */
+ -- Filters grouped rows which satisfy condition. 
+ -- Occurs AFTER rows have been grouped. (Where clause happens before rows are grouped)
+ -- WHERE for GROUPBYs. 
+
+-- Find customers who have spent more than 200 dollers. 
+SELECT customer_id, SUM(amount) 
+  FROM payment 
+ GROUP BY customer_id 
+HAVING sum(amount) > 200
+
+-- Stores which have more than X customers per store. 
+SELECT store_id, COUNT(customer_id)
+  FROM customer 
+ GROUP BY store_id
+HAVING COUNT(customer_id) > 300 
+
+-- Break down movie rating by average rental rate, only show ones where AVG is under 3
+SELECT rating, AVG(rental_rate)
+  FROM film
+ WHERE rating in ('R', 'G', 'PG')
+GROUP BY rating
+HAVING AVG(rental_rate < 3)
