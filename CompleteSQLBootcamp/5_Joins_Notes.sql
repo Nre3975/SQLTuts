@@ -203,7 +203,21 @@ SELECT f.film_id, f.title, i.inventory_id
  GROUP BY f.film_id, f.title
  ORDER BY COUNT(i.inventory_id);
 
+------------------------------------------------------------------------------------
+/* 40: Union  */ 
+-- Combines result sets of two or more select statements into a single result set. 
+-- Rule1: Both queries must have same number of columns returned.
+-- Rule2: Corresponding columns in the queries don't have to be the same, but should 
+-- be the same data types. 
+-- Rule 3: UNION has no duplicate rows. UNION ALL includes duplicates. 
 
- 
- 
+-- Example: 2 Tables: Sales2007q1 / Sales2007q2. 
+-- Use Union to create 1 result set combining the data. (Sales2007Q1+Q2.)
+-- As Mary has the same entries in both table, only Union All will work properly. 
+
+SELECT * 
+  FROM Sales2007q1
+ UNION ALL 
+SELECT * 
+  FROM Sales2007q1
 
