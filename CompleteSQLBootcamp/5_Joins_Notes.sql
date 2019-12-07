@@ -181,3 +181,29 @@ SELECT *
 NULL | NULL               1    | Rutabaga 
 NULL | NULL               3    | Darth Vader
 */ 
+
+------------------------------------------------------------------------------------
+/* 39: Example of Outer Joins.  */ 
+-- Left outer join. 
+-- All the rows in the left table, combined with right table. With NULL for right 
+-- table values if it doesn't have any data. 
+
+-- E.g: File can have 0+ Rows in inventory depending on how many discs are in stock.
+-- but inventory has 1 and only 1 entry in film table. 
+-- Show films not in stock:
+SELECT f.film_id, f.title, i.inventory_id
+  FROM film f
+  LEFT OUTER JOIN inventory i ON f.film_id = i.film_id
+ WHERE i.inventory_id IS NULL;
+
+ -- Count of all films inventory: 
+ SELECT f.film_id, f.title, COUNT(i.inventory_id)
+  FROM film f
+  LEFT OUTER JOIN inventory i ON f.film_id = i.film_id
+ GROUP BY f.film_id, f.title
+ ORDER BY COUNT(i.inventory_id);
+
+
+ 
+ 
+
