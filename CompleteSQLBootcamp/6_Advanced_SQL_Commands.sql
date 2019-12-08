@@ -47,3 +47,31 @@ SELECT SUM(amount) AS total, EXTRACT(month FROM payment_date) AS month
   FROM payment
  GROUP BY month
  ORDER BY total DESC;
+
+----------------------------------------------------------------------------------------------------------
+/* 44: Mathematical Functions */ 
+-- https://www.postgresql.org/docs/9.1/functions-math.html
+
+-- Operators: Create new ID based on cust_id and rental_id
+SELECT customer_id + rental_id AS new_id FROM payment;
+SELECT customer_id * rental_id AS new_id FROM payment;
+SELECT rental_id / customer_id AS new_id FROM payment;
+
+-- Functions. Average value from the amount column. 
+SELECT round(avg(amount), 2)
+  FROM payment
+
+----------------------------------------------------------------------------------------------------------
+/* 45: String Functions and Operators. */ 
+-- https://www.postgresql.org/docs/9.1/functions-string.html
+
+-- String concatenation. 
+SELECT first_name || ' ' || last_name AS name FROM customer; 
+
+-- See how many characters a name has. 
+SELECT first_name, char_length(first_name) 
+  FROM customer;
+
+-- String Case: 
+SELECT UPPER(first_name)
+  FROM customer;
