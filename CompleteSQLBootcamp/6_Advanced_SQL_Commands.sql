@@ -75,3 +75,23 @@ SELECT first_name, char_length(first_name)
 -- String Case: 
 SELECT UPPER(first_name)
   FROM customer;
+
+----------------------------------------------------------------------------------------------------------
+/* 46: SubQuery. */ 
+-- A query nested inside another query within brackets. 
+-- Subqueries are executed first in SQL Engine. 
+
+-- Example 1: Want to find films whose rental rate is higher than average rental rate. 
+-- Step 1: Find average rental rate, Step 2: Use this to find films higher than it. 
+SELECT * 
+  FROM film 
+ WHERE rental_rate > (SELECT avg(rental_rate) FROM film);
+
+-- If SubQuery returns multiple rows, use the IN operator. 
+SELECT film_id, title 
+  FROM film
+ WHERE film_id IN (-- List of Film ID's returned between 29th and 30th May 2005. 
+					SELECT i.film_id 
+  					  FROM rental r 
+ 					 INNER JOIN inventory i ON r.inventory_id = i.inventory_id
+ 					 WHERE r.return_date BETWEEN '2005-05-29' AND '2005-05-30')
