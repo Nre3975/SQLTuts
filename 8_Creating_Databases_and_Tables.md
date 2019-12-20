@@ -42,3 +42,44 @@ Constrain the type of data in a column.
 ##### Array
 * Outside of scope of lecture. 
 
+## 53: Primary Keys and Foreign Keys. 
+
+#### Primary Key: 
+* Column(s) which uniquely identofy a row in a table. 
+* Defined using Primary Key Constraint. 
+* Each table has 1 or 0 primary keys, but should always have one. 
+* Defining primary key on column(s) will create an index on the same column(s) 
+* Example: CustomerID. 
+* Serials can be a good primary key ID, as they auto increment when new row added (Can use a Sequence in Oracle SQL)
+
+#### Foreign Key: 
+* Column(s) which uniquely identify a row in another table. 
+* Often points to the primary key of another table, if not to the primary key it should be another column which had a unique constraint on it. 
+* Defined through a foreign key constraint. 
+* Maintains Referential integrity between child and parent tables
+* FK sits in the child table of the primary keys parent table. 
+* A table can have multiple foriegn keys to various other tables. 
+
+#### Example: 
+2 Tables: <code>so_items</code>, <code>so_headers</code>. 
+###### so_headers: 
+* Primary Key: Id. 
+###### so_items: 
+* Primary Key: item_id 
+* Foreign Key: so_id (Links to Id from so_headers table) 
+
+## 56: Create Table. 
+
+#### Column Constraints. 
+* Not Null: Value cannot be null. 
+* Unique: Value of column must be unique against other rows. (Can be null, each null is unique in PostgreSQL.)
+* Primary Key - Combination of Unique and Not Null. (Can be multiple columns.)
+* Check Constraint: Check a condition when inserting / updating data. 
+* References: Constrain value of the column that exists in a column in another table. (Used to define Foreign Key constraint.)
+
+#### Table Constraints 
+* Applied to entire table, not just a column. 
+* Unique (Column_list)
+* Primary Key (Column_list) 
+* Check (Condition)
+* References.
