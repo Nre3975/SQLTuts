@@ -70,14 +70,14 @@ CREATE TABLE challenge (
     signup_date     TIMESTAMP       NOT NULL,
     time_logged     INTEGER  
 
-)
+);
 
 ----------------------------------------------------------------------------------------------------------
 /* 59: Insert */ 
 
 -- Insert using values. 
 INSERT INTO table(column1, column2)
-VALUES(value1, value2)
+VALUES(value1, value2);
 
 INSERT INTO table(column1, column2)
 VALUES(value1, value2), 
@@ -91,7 +91,7 @@ CREATE TABLE link (
 	name	        VARCHAR(255)	NOT NULL, 
 	description	    VARCHAR(255), 
 	rel             VARCHAR(50)
-)
+);
 
 CREATE TABLE link_copy (LIKE link) ;
 
@@ -110,6 +110,54 @@ INSERT INTO link_copy
 SELECT * FROM link
 WHERE name = 'Bing';
 
--- Note serials copied will be the copied value, not the next increment 
+-- Note serials inserted will use the copied value, not the next increment 
 -- for the table they're copied into. 
 
+----------------------------------------------------------------------------------------------------------
+/* 60: Update */ 
+-- Update existing data in a table. 
+UPDATE table_name 
+   SET column1 = value1
+       column2 = value2 
+ WHERE condition; 
+
+-- Update all rows description column to Empty Description.
+UPDATE link 
+   SET description = 'Empty Description';
+   
+-- Update rows matching a conditional
+UPDATE link 
+   SET description = 'Name starts with an A'
+ WHERE UPPER(NAME) like 'A%';
+   
+-- Set Description to match name column. 
+UPDATE link 
+   SET description = name;
+
+-- Return columns of updated entry 
+UPDATE link 
+   SET description = 'new description' 
+ WHERE id = 1
+RETURNING id, url, name, description;
+
+----------------------------------------------------------------------------------------------------------
+/* 61: Delete Statement */ 
+-- Delete rows from table and return the number of rows deleted. 
+
+-- Delete all rows in table: 
+DELETE FROM table_name 
+
+-- Delete specific rows in a table: 
+DELETE FROM table_name 
+ WHERE condition; 
+
+-- Example: 
+DELETE 
+  FROM link
+ WHERE name like 'B%';
+
+-- Example using returning: 
+DELETE 
+  FROM link
+ WHERE name = 'A'
+ RETURNING id, url, name, description;
