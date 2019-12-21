@@ -92,3 +92,11 @@ Constrain the type of data in a column.
 * Add check constraint to a column 
 * Rename table. 
 
+## 64 Check Constraint. 
+* Constraint to specify if a value in a column should meet a specific requirement. 
+* Uses Boolean expression to evaluate values of column. 
+
+## 65 NOT NULL Constraint. 
+* NULL: Missing or unknown information. Different to zero/empty. 
+* NOT NULL ensures a column must have some data in it, cannot be a NULL value. 
+*  

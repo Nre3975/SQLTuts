@@ -192,3 +192,58 @@ ALTER TABLE link
 
  -- Rename Table 
 ALTER TABLE link RENAME TO url_table
+
+ ----------------------------------------------------------------------------------------------------------
+/* 63: Drop Table */ 
+-- Remove / Drop tables from Database. 
+
+DROP TABLE [IF EXISTS] table_name [RESTRICT / CASCADE]; 
+-- IF EXISTS: Checks if table exists first to stop errors if it doesn't. 
+-- RESTRICT: Implicitly on all DROP TABLE statements. Doesn't drop table if it has dependant objects. 
+-- Whereas CASCADE Will still drop it. 
+
+--Example: Create and drop a table. 
+CREATE TABLE test_two (
+	test_id 	SERIAL		PRIMARY KEY
+); 
+
+SELECT * FROM test_two;
+
+DROP TABLE IF EXISTS test_two;
+
+ ----------------------------------------------------------------------------------------------------------
+/* 64: Check Constraints */ 
+
+DROP TABLE IF EXISTS new_users
+CREATE TABLE new_users (
+	user_id		SERIAL 			PRIMARY KEY, 
+	first_name 	VARCHAR(100),	
+	last_name	VARCHAR(100),
+	birth_date	DATE 			CHECK(birth_date > '1900-01-01'),
+	join_date 	DATE			CHECK(join_date > birth_date),
+	salary		INTEGER			CHECK(salary > 0)
+);
+
+-- Cannot insert a new row that violates the check constraint: 
+INSERT INTO new_users(first_name, birth_date, join_date, salary)
+VALUES ('Joe', '1980-02-02', '1990-04-04', -10);
+
+-- Manually naming the constraint using the CONSTRAINT keyword. 
+CREATE TABLE sales (
+	sales		INTEGER		CONSTRAINT positive_sales CHECK(sales>0)
+);
+
+ ----------------------------------------------------------------------------------------------------------
+/* 64: NOT NULL Constraints */ 
+CREATE TABLE learn_null ( 
+    first_name      VARCHAR(100), 
+    sales           INTEGER         NOT NULL
+);
+
+-- Insert to fail as it has a missing value for sales. 
+INSERT INTO learn_null(first_name) 
+VALUES ('John');
+
+-- Insert to succeed as it has a value for sales: 
+INSERT INTO learn_null(first_name, sales) 
+VALUES ('John', 0)
