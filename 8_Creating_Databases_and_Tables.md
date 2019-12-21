@@ -83,3 +83,12 @@ Constrain the type of data in a column.
 * Primary Key (Column_list) 
 * Check (Condition)
 * References.
+
+## 62: Alter Table.
+
+#### Types of actions: 
+* Add, Remove, Rename columns. 
+* Set default value for a column. 
+* Add check constraint to a column 
+* Rename table. 
+

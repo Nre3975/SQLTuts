@@ -161,3 +161,34 @@ DELETE
   FROM link
  WHERE name = 'A'
  RETURNING id, url, name, description;
+
+ ----------------------------------------------------------------------------------------------------------
+/* 62: Alter Table */ 
+-- Change table structures. 
+
+--Syntax: 
+ALTER TABLE table_name 
+ACTION; 
+
+-- Create table for testing. 
+DROP TABLE IF EXISTS link; 
+CREATE TABLE link (
+	link_id		SERIAL			PRIMARY KEY ,
+	title		VARCHAR(512) 	NOT NULL,
+	url			VARCHAR(1024)	NOT NULL UNIQUE
+);
+
+-- Add Column 
+ALTER TABLE link 
+  ADD COLUMN active BOOLEAN; 
+ 
+-- Delete Column 
+ALTER TABLE link 
+ DROP COLUMN active; 
+
+ -- Rename Column 
+ ALTER TABLE link 
+ RENAME COLUMN title TO new_title_name;
+
+ -- Rename Table 
+ALTER TABLE link RENAME TO url_table
