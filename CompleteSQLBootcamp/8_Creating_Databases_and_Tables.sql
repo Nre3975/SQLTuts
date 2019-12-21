@@ -233,8 +233,8 @@ CREATE TABLE sales (
 	sales		INTEGER		CONSTRAINT positive_sales CHECK(sales>0)
 );
 
- ----------------------------------------------------------------------------------------------------------
-/* 64: NOT NULL Constraints */ 
+----------------------------------------------------------------------------------------------------------
+/* 65: NOT NULL Constraints */ 
 CREATE TABLE learn_null ( 
     first_name      VARCHAR(100), 
     sales           INTEGER         NOT NULL
@@ -247,3 +247,20 @@ VALUES ('John');
 -- Insert to succeed as it has a value for sales: 
 INSERT INTO learn_null(first_name, sales) 
 VALUES ('John', 0)
+
+----------------------------------------------------------------------------------------------------------
+/* 66: Unique Constraints */ 
+-- Every new row inserted, DBMS ensures this value isn't already present in other rows. 
+
+CREATE TABLE people ( 
+    id          SERIAL          PRIMARY KEY, 
+    first_name  VARCHAR(50)     ,
+    email       VARCHAR(100)    UNIQUE
+);
+
+-- Insert 2 rows, the second has a duplicate email...Will fail the insert. 
+INSERT INTO people (id, first_name, email) 
+VALUES (1, 'Joe', 'joe@joe.com');
+INSERT INTO people (id, first_name, email) 
+VALUES (2, 'Joe2', 'joe@joe.com');
+
