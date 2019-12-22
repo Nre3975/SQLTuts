@@ -1,5 +1,4 @@
-/* 70: Overview of Python + PostgreSQL */ 
-
+# 70: Overview of Python + PostgreSQL *
 # Link for resources on Psycoog2: https://wiki.postgresql.org/wiki/Psycopg2_Tutorial
 
 # Import psychopg2 library 

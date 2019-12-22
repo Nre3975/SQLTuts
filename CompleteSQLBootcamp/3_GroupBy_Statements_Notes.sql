@@ -25,7 +25,7 @@ SELECT ROUND(AVG(amount), 2)
 SELECT COUNT(amount)
   FROM payment;
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 26: GROUP BY */
 -- Divides rows returned by SELECT statement into groups. 
 -- For each group can apply an aggregate functions for that group. 
@@ -72,7 +72,7 @@ SELECT rating, round(avg(rental_rate) , 3)
   FROM film
  GROUP BY Rating; 
 
- ---------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------
  /* 26: HAVING */
  -- Filters grouped rows which satisfy condition. 
  -- Occurs AFTER rows have been grouped. (Where clause happens before rows are grouped)

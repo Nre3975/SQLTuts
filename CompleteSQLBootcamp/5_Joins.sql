@@ -7,7 +7,7 @@ SELECT customer_id, SUM(amount) AS "Total_Spent"
   FROM payment 
  GROUP BY customer_id; 
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 36: Overview of Inner Join  */ 
 -- Relate table in one table, to data in another tables. 
 -- Can link from a FK in one table to a PK in another table. (But not required)
@@ -47,7 +47,7 @@ SELECT c.customer_id, c.first_name, c.last_name, c.email,
  INNER JOIN payment p ON c.customer_id = p.customer_id
  WHERE c.customer_id = 2;
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 37: Examples of Inner Join  */ 
 -- ANSI Join
 SELECT p.payment_id, p.amount, 
@@ -89,7 +89,7 @@ SELECT f.title, l.name AS movie_language
   FROM film f, language l
  WHERE f.language_id  = l.language_id;
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 38: Overview Of Join Types  */ 
 
 /*  Table A                 Table B 
@@ -182,7 +182,7 @@ NULL | NULL               1    | Rutabaga
 NULL | NULL               3    | Darth Vader
 */ 
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 39: Example of Outer Joins.  */ 
 -- Left outer join. 
 -- All the rows in the left table, combined with right table. With NULL for right 
@@ -203,7 +203,7 @@ SELECT f.film_id, f.title, i.inventory_id
  GROUP BY f.film_id, f.title
  ORDER BY COUNT(i.inventory_id);
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 40: Union  */ 
 -- Combines result sets of two or more select statements into a single result set. 
 -- Rule1: Both queries must have same number of columns returned.

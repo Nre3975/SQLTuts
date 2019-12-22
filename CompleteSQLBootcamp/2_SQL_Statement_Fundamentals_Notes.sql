@@ -5,7 +5,7 @@ SELECT DISTINCT release_year FROM film;
 -- Check how many distinct prices are in the table:
 SELECT DISTINCT rental_rate FROM film;
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 15: SELECT WHERE. */ 
 -- Where: Filter rows returned in SELECT statement. 
 -- Operators: = > < >= <= <> != AND OR. 
@@ -25,7 +25,7 @@ SELECT *
   FROM customer 
  WHERE store_id = 1 AND address_id > 5
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 17: COUNT */
 -- Count number of rows where condition is true. 
 
@@ -37,7 +37,7 @@ SELECT COUNT(*)
 SELECT COUNT(DISTINCT amount)
   FROM payment; 
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 18: Limit. */
 -- Limit the number of rows returned, does not exist in ORACLE SQL. 
 
@@ -62,7 +62,7 @@ SELECT *
 OFFSET 5 ROWS
  FETCH FIRST 5 ROWS ONLY;
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 19: Order By. */
 -- Sort data by column(s) in ascending or descending order. 
 -- In postgres can also sort by columns not returned in the select statement
@@ -82,7 +82,7 @@ SELECT email
   FROM customer
  ORDER BY last_name DESC; 
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 21: Between */
 -- Match a value against a range of values. 
 -- value BETWEEN HIGH AND LOW  == Value >- low AND value <= high; 
@@ -105,7 +105,7 @@ SELECT payment_date
   FROM payment 
  WHERE payment_date BETWEEN '2007-02-07' AND '2007-02-15'
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 22: In */
 -- Check when a value matches another value in a given list of values or subquery. 
 -- Returns TRUE/FALSE. 
@@ -135,7 +135,7 @@ SELECT *
   FROM payment 
  WHERE amount IN (7.99, 8.99); 
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 23: Like */
 -- String/Substring pattern matching. 
 -- % = Wildcard Sequence, _ Single Wildcard Character. 

@@ -45,7 +45,6 @@ CREATE TABLE teachers (
 -- We must have ids as the primary key of the tables
 -- Phone numbers and emails must be unique to the individual.
 
-
 -- Insert a student named Mark Watney (student_id=1) who has a phone number of 777-555-1234 and doesn't have an email. He graduates in 2035 and has 5 as a homeroom number.
 
 INSERT INTO students (first_name, last_name, homeroom_number, phone, email, graduation_year)

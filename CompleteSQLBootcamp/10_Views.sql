@@ -1,5 +1,5 @@
 /* 69: Views */ 
--- View: Database object of a stored query. 
+-- View: A Database object of a stored query. 
 -- Logical table representing data of one+ underlying tables through select statement. 
 
 -- Shows view of a select query, 

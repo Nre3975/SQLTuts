@@ -1,17 +1,16 @@
 /* 2.12: Challenge: SELECT Task. */
-
 --1) Select name and email from customer: 
 SELECT first_name, last_name, email
   FROM customer; 
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 2.14: Challenge: SELECT DISTINCT. */
 
 --1) Check how many distinct years are in the table:
 SELECT DISTINCT rating 
   FROM film; 
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 2.16: Challenge: SELECT WHERE. */
 
 -- 1) What's the email for customer with name Nancy Thomas?
@@ -30,7 +29,7 @@ SELECT phone
   FROM address
  WHERE address = '259 Ipoh Drive'
  
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 2.20: Challenge: ORDER BY.  */
 
 -- 1) Customer IDs for top 10 payment amounts:
@@ -53,7 +52,7 @@ SELECT film_id
   FROM film 
  ORDER BY film_id 
  LIMIT 5; 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 2.24: General Challenge 1. */
 
 -- 1) How many payment transactions were greater than $5.00? 

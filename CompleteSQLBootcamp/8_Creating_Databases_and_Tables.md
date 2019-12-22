@@ -99,4 +99,3 @@ Constrain the type of data in a column.
 ## 65 NOT NULL Constraint. 
 * NULL: Missing or unknown information. Different to zero/empty. 
 * NOT NULL ensures a column must have some data in it, cannot be a NULL value. 
-*  

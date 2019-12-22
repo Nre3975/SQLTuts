@@ -1,32 +1,7 @@
-/* 42: Overview of Advanced SQL Commands. */ 
--- Mathematical Functions
--- Timestamps & Extract Function. 
--- String Functions / Operators. 
--- SubQuery. 
--- Self Join. 
-
-----------------------------------------------------------------------------------------------------------
 /* 43: Timestamps and Extract */ 
 -- PostgreSQL can extract parts from a date: 
 -- Arithmetic can also be used on dates (Date + 7 for 7 days in the future etc). 
 extract (unit_from_date); 
-
-/* Extractable types: 
-Day: Day of monty (1 - 31) 
-dow: Day of week (0 = Sunday, 1 = Monday etc. )
-doy: Day of Year (1 = 1st Jan, 365/366 = 31s Dec)
-epoch: Number of seconds since 1970-01-01 00:00:00 / Number of seconds in an interval. 
-hour: Hour (0 - 23) 
-microseconds: Seconds * 1,000,000
-millennium: Millenium Value
-Milliseconds: Seconds * 1,000
-Minute: Minute (0, 59)
-Month: Month Number (1 - 12) / Number of months if interval. 
-Quarter: Quater (1 - 4)
-Second: Seconds / Fractional Seconds. 
-Week: Number of the week based on ISO 8601. 
-Year: Year as 4 digits. 
-https://www.postgresql.org/docs/9.1/functions-datetime.html */ 
 
 -- Other functions: (Like in Oracle, but without FROM dual;)
 select age(timestamp, timestamp) -- Age between two times. 

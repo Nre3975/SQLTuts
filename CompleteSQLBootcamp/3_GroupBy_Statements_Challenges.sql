@@ -19,7 +19,7 @@ SELECT p.customer_id, c.first_name || ' ' || c.last_name AS NAME, SUM(amount) AS
  ORDER BY sum(amount) DESC
  FETCH NEXT 5 ROWS ONLY; 
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 /* 15: WHERE CLAUSE */ 
 
 --1) Find customers by customer ID with 40+ transaction payments. 
