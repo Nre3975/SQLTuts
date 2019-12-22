@@ -1,3 +1,4 @@
+/* 67: Assessment Test 3. */ 
 -- Create a new database called "School" 
 
 odmint@odlm:~$ sudo su postgres 
